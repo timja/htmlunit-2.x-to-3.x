@@ -32,12 +32,12 @@ pr-body: |
 
   It follows the [migration guide](https://www.htmlunit.org/migration.html)
 
-  Ping @timja if any questions
+  Ping `@timja` if any questions
 
   _[script source](https://github.com/timja/htmlunit-2.x-to-3.x)_
 # # # The name, including owner of a GitHub repository in the format "ownerName/repoName".
-repo:
-  - jenkinsci/junit-plugin
+# repo:
+#   - jenkinsci/git-plugin
 # #   - mylittlecorp/jenkins-infra-test-plugin
 # #   - lemeurherve/jenkins-infra-test-plugin
 #   - jenkinsci/jenkins-infra-test-plugin
@@ -49,4 +49,4 @@ org:
 
 
 # Skip changes on specified repositories, the name is including the owner of repository in the format "ownerName/repoName".
-skip-repo: ["jenkinsci/jenkins", "jenkinsci/junit-plugin"]
+skip-repo: ["jenkinsci/jenkins", "jenkinsci/junit-plugin", "jenkinsci/git-plugin", "jenkinsci/gerrit-trigger-plugin"]

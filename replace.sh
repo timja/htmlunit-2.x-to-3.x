@@ -47,6 +47,9 @@ if git diff --exit-code > /dev/null
 then
     echo "No replacements required"
     exit
+else
+    echo "Sleeping to avoid rate limits"
+    sleep 60
 fi
 
 if grep -q '<artifactId>plugin</artifactId>' pom.xml
