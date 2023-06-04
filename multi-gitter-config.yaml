@@ -44,9 +44,9 @@ repo:
 # # #   - jenkinsci/test-results-aggregator-plugin
 
 # # The name of a GitHub organization. All repositories in that organization will be used.
-# org:
-#   - jenkinsci
+org:
+  - jenkinsci
 
 
 # Skip changes on specified repositories, the name is including the owner of repository in the format "ownerName/repoName".
-skip-repo: []
+skip-repo: ["jenkinsci/jenkins", "jenkinsci/junit-plugin"]

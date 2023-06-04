@@ -10,13 +10,13 @@ find . -name 'pom.xml' -type f -exec $sed -i'' -e '
     /<artifactId>jenkins-test-harness-htmlunit<\/artifactId>/{
         N
         /<version>[^<]*<\/version>/{
-            s/<version>[^<]*<\/version>/<version>143.v8979204b_fc0c<\/version>/
+            s/<version>[^<]*<\/version>/<version>144.v5c640e68276e<\/version>/
         }
     }
     /<artifactId>jenkins-test-harness<\/artifactId>/{
         N
         /<version>[^<]*<\/version>/{
-            s/<version>[^<]*<\/version>/<version>2011.vf7edf4d6253d<\/version>/
+            s/<version>[^<]*<\/version>/<version>2010.v1888f1a_cd45a_<\/version>/
         }
     }
 ' {} +
@@ -41,9 +41,6 @@ find . -type f -name '*.java' -exec $sed -i'' -e '
     /setValueAttribute/{
         s/setValueAttribute/setValue/g
     }
-    /<artifactId>jenkins-test-harness<\/artifactId>.*<version>[^<]*<\/version>/{
-        s/<version>[^<]*<\/version>/<version>2011.vf7edf4d6253d<\/version>/
-    }
 ' {} +
 
 if git diff --exit-code > /dev/null
@@ -54,7 +51,7 @@ fi
 
 if grep -q '<artifactId>plugin</artifactId>' pom.xml
 then
-    mvn versions:update-parent -DparentVersion=4.64
+    mvn versions:update-parent -DparentVersion=4.66
     rm -f pom.xml.versionsBackup
 fi
 
