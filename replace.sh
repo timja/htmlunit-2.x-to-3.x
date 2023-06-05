@@ -49,7 +49,7 @@ then
     exit
 else
     echo "Sleeping to avoid rate limits"
-    sleep 60
+    # sleep 60
 fi
 
 if grep -q '<artifactId>plugin</artifactId>' pom.xml

@@ -9,7 +9,7 @@ branch: htmlunit-2.x-to-3.x
 # Available values:
 #   skip: Skip making any changes to the existing branch and do not create a new pull request.
 #   replace: Replace the existing content of the branch by force pushing any new changes, then reuse any existing pull request, or create a new one if none exist.
-conflict-strategy: replace
+conflict-strategy: skip
 
 # Comment this out if you don't have permissions on the repository
 labels:
@@ -32,12 +32,30 @@ pr-body: |
 
   It follows the [migration guide](https://www.htmlunit.org/migration.html)
 
+  <details>
+    <summary>Migration steps for cases the script can't handle</summary>
+
+    This migration currently can't handle `HtmlOption` changes properly.
+    If it fails to compile on `HtmlOption` then revert the specific case:
+    ```diff
+  --- a/src/test/java/hudson/plugins/emailext/ExtendedEmailPublisherDescriptorTest.java
+  +++ b/src/test/java/hudson/plugins/emailext/ExtendedEmailPublisherDescriptorTest.java
+  @@ -114,7 +114,7 @@ public class ExtendedEmailPublisherDescriptorTest {
+          assertEquals(
+                  "Plain text should be selected by default",
+                  "text/plain",
+  -                contentType.getSelectedOptions().get(0).getValue());
+  +                contentType.getSelectedOptions().get(0).getValueAttribute());
+    ```
+
+    </details>
+
   Ping `@timja` if any questions
 
   _[script source](https://github.com/timja/htmlunit-2.x-to-3.x)_
 # # # The name, including owner of a GitHub repository in the format "ownerName/repoName".
 # repo:
-#   - jenkinsci/git-plugin
+#   - jenkinsci/artifact-manager-s3-plugin
 # #   - mylittlecorp/jenkins-infra-test-plugin
 # #   - lemeurherve/jenkins-infra-test-plugin
 #   - jenkinsci/jenkins-infra-test-plugin
