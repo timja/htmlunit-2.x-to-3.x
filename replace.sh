@@ -4,6 +4,8 @@ set -e
 
 if [ "$(uname)" == "Darwin" ]; then
     sed=gsed
+else
+    sed=sed
 fi
 
 find . -name 'pom.xml' -type f -exec $sed -i'' -e '
