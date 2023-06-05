@@ -17,7 +17,7 @@ fi
 
 if [[ -z ${GITHUB_TOKEN} ]]; then
   echo 'Error: the GITHUB_TOKEN env var is not set.' >&2
-  exit 1
+  exit 2
 fi
 
 set -x
